@@ -1,4 +1,4 @@
 # Database
-Database and management system labs
+Database & Management tools labs
 
 Liubchych Illiya KV-82
