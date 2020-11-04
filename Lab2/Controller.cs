@@ -8,13 +8,14 @@ namespace DBManagement
     class Controller
     {
         public NpgsqlCommand cmd;
-        public NpgsqlDataReader rdr;
+        NpgsqlDataReader rdr;
         NpgsqlConnection con;
         Insert insert;
         Update update;
         Delete delete;
         RandomInsert randomInsert;
         SQL_Tool sqlTool;
+        string password = "80601653";
         public Controller()
         {
             insert = new Insert();
@@ -22,10 +23,13 @@ namespace DBManagement
             delete = new Delete();
             randomInsert = new RandomInsert();
             sqlTool = new SQL_Tool();
-            var cs = "Host=localhost;Username=postgres;Password=80601653;Database=DB_Lab1";
+            connectDB();
+        }
+        private void connectDB()
+        {
+            var cs = $"Host=localhost;Username=postgres;Password={password};Database=DB_Lab1";
             con = new NpgsqlConnection(cs);
             con.Open();
-
             cmd = new NpgsqlCommand();
             cmd.Connection = con;
         }
@@ -223,7 +227,7 @@ namespace DBManagement
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Помилка перехоплена");
             }
         }
     }
