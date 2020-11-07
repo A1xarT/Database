@@ -56,9 +56,10 @@ namespace DBManagement
             StadiumFkey = int.Parse(Console.ReadLine());
             Console.Write("Date: ");
             Date = Console.ReadLine();
-            Console.Write("TIme: ");
+            Console.Write("Time: ");
             Time = Console.ReadLine();
-            return $"(\"Arbiter\", \"Elapsed Time\", \"Date\", \"Time\", \"Стадіон_key\") VALUES('{Arbiter}', {Duration},'{Date}','{Time}', {StadiumFkey});";
+            return $"(\"Arbiter\", \"Elapsed Time\", \"Date\", \"Time\", \"Стадіон_key\") VALUES('{Arbiter}', " +
+                $"{Duration},'{Date}','{Time}', {StadiumFkey});";
         }
         public string InsertResults()
         {
@@ -69,7 +70,7 @@ namespace DBManagement
             Team_Comp_key = int.Parse(Console.ReadLine());
             Console.Write("Points: ");
             Points = int.Parse(Console.ReadLine());
-            return $"(\"Points\", \"Exercise Name\", \"Команда_Змагання_key\") VALUES({Points},'{ExName}',{Team_Comp_key});";
+            return $"(\"Points\", \"ExerciseName\", \"Команда_Змагання_key\") VALUES({Points},'{ExName}',{Team_Comp_key});";
         }
         public string InsertTeam_Competition()
         {

@@ -54,7 +54,7 @@ namespace DBManagement
         }
         public string UpdateCompetition()
         {
-            string Arbiter, Date, Time; int Duration, StadiumFkey;
+            string Arbiter, Date, Time; int Duration, StadiumFkey, _day, _month, _year;
             Console.Write("Record ID to change: ");
             id = int.Parse(Console.ReadLine());
             Console.Write("Arbiter: ");
@@ -63,9 +63,15 @@ namespace DBManagement
             Duration = int.Parse(Console.ReadLine());
             Console.Write("Stadium key: ");
             StadiumFkey = int.Parse(Console.ReadLine());
-            Console.Write("Date: ");
-            Date = Console.ReadLine();
-            Console.Write("TIme: ");
+            Console.WriteLine("Date: ");
+            Console.Write("Day: ");
+            _day = int.Parse(Console.ReadLine());
+            Console.Write("Month: ");
+            _month = int.Parse(Console.ReadLine());
+            Console.Write("Year: ");
+            _year = int.Parse(Console.ReadLine());
+            Date = _year.ToString() + '-' + _month.ToString() + '-' + _day.ToString();
+            Console.Write("Time: ");
             Time = Console.ReadLine();
             return $" SET \"Arbiter\"='{Arbiter}', \"Date\"='{Date}', \"Time\"='{Time}', " +
                 $"\"Elapsed Time\"={Duration}, \"Стадіон_key\"={StadiumFkey} where id = {id};";
