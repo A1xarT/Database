@@ -15,7 +15,7 @@ namespace DBManagement
         Delete delete;
         RandomInsert randomInsert;
         SQL_Tool sqlTool;
-        string password = "80601653";
+        string password = "********";
         public Controller()
         {
             insert = new Insert();
